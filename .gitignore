@@ -22,3 +22,7 @@ dist/
 # Build outputs
 .cache/
 .parcel-cache/
+
+# Source / working files (kept out of the deliverable repo)
+Media/
+Business_data.txt

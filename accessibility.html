@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0e11" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>הצהרת נגישות | די.אם.או. אדריכלים — DMO Architects</title>
+  <meta name="description" content="הצהרת הנגישות של אתר די.אם.או. אדריכלים — תאימות לתקן הישראלי 5568 ברמה AA, פרטי רכז הנגישות ודרכי פנייה." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://dmoarc.com/accessibility.html" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230d0e11'/%3E%3Ctext x='50%25' y='54%25' font-family='serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23c9a36a' dominant-baseline='middle'%3EDMO%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">דלג לתוכן הראשי</a>
+
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="header is-scrolled" id="header">
+    <div class="container header__row">
+      <a href="index.html#top" class="logo" aria-label="די אם או אדריכלים - בית">
+        <span class="logo__mark">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M4 36 V10 L20 4 L36 10 V36 H24 V22 H16 V36 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="logo__text"><strong>DMO</strong><em>אדריכלים</em></span>
+      </a>
+
+      <nav class="nav" aria-label="ניווט ראשי">
+        <ul class="nav__list">
+          <li><a href="index.html#about">אודות</a></li>
+          <li><a href="index.html#services">שירותים</a></li>
+          <li><a href="index.html#process">תהליך</a></li>
+          <li><a href="projects.html">פרויקטים</a></li>
+          <li><a href="index.html#testimonials">המלצות</a></li>
+          <li><a href="index.html#contact">צור קשר</a></li>
+        </ul>
+      </nav>
+
+      <a href="index.html#contact" class="btn btn--ghost header__cta">לקביעת פגישה</a>
+
+      <button class="menu-toggle" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <ul>
+        <li><a href="index.html#about">אודות</a></li>
+        <li><a href="index.html#services">שירותים</a></li>
+        <li><a href="index.html#process">תהליך</a></li>
+        <li><a href="projects.html">פרויקטים</a></li>
+        <li><a href="index.html#testimonials">המלצות</a></li>
+        <li><a href="index.html#contact">צור קשר</a></li>
+      </ul>
+      <a href="tel:+972533110717" class="btn btn--primary btn--block">התקשרו עכשיו</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="subhero">
+      <div class="container subhero__inner">
+        <nav class="crumbs" aria-label="פירורי לחם">
+          <a href="index.html">בית</a>
+          <span class="sep">/</span>
+          <span aria-current="page">הצהרת נגישות</span>
+        </nav>
+        <span class="eyebrow">מסמך משפטי</span>
+        <h1>
+          <span class="is-serif is-accent">הצהרת</span>
+          הנגישות שלנו.
+        </h1>
+        <p>
+          באתר di.am.o. אדריכלים אנחנו מאמינים שהמידע המקצועי שאנחנו מציגים צריך להיות
+          זמין לכל אדם — ללא תלות במוגבלות פיזית, חושית או קוגניטיבית. במסמך זה תוכלו לקרוא
+          על מידת ההנגשה של האתר ועל דרכי הפנייה לרכז הנגישות שלנו.
+        </p>
+      </div>
+    </section>
+
+    <section class="legal section">
+      <div class="container">
+        <article class="legal-prose">
+          <div class="legal-meta">
+            <span>עודכן לאחרונה<strong>אפריל 2026</strong></span>
+            <span>תקן ייחוס<strong>ת"י 5568 · WCAG 2.0 AA</strong></span>
+          </div>
+
+          <nav class="legal-toc" aria-label="תוכן עניינים">
+            <h3>תוכן עניינים</h3>
+            <ol>
+              <li><a href="#commit">מחויבות להנגשה</a></li>
+              <li><a href="#standard">התקן והתאמת האתר</a></li>
+              <li><a href="#features">אמצעי הנגישות באתר</a></li>
+              <li><a href="#compat">תאימות לטכנולוגיה מסייעת</a></li>
+              <li><a href="#limitations">חלקים שטרם הונגשו</a></li>
+              <li><a href="#coordinator">רכז הנגישות ויצירת קשר</a></li>
+            </ol>
+          </nav>
+
+          <h2 id="commit">1. מחויבות להנגשה</h2>
+          <p>
+            משרד <strong>די.אם.או. אדריכלים בע"מ</strong> רואה בנגישות הדיגיטלית ערך מקצועי ומוסרי.
+            אנחנו פועלים להנגיש את האתר לאנשים עם מוגבלות, בהתאם להוראות
+            <strong>חוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח–1998</strong>
+            ולתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג–2013.
+          </p>
+          <p>
+            צוות המשרד מבצע בדיקות נגישות תקופתיות ופועל לתקן ליקויים שמתגלים.
+            אם נתקלתם ברכיב או בעמוד שאינם מונגשים — נשמח שתעדכנו אותנו (פרטי הקשר בסוף המסמך).
+          </p>
+
+          <h2 id="standard">2. התקן והתאמת האתר</h2>
+          <p>
+            האתר תוכנן ופותח בשאיפה לעמידה ב<strong>תקן הישראלי 5568</strong> ברמה AA —
+            התקן המבוסס על הנחיות ה-WCAG 2.0 ברמה AA של ארגון W3C. הבדיקות בוצעו לרוחב הדפים
+            המרכזיים של האתר ובוחנות, בין היתר:
+          </p>
+          <ul>
+            <li>ניגודיות צבעים מספקת בין טקסט לרקע</li>
+            <li>היררכיית כותרות ותגי HTML סמנטיים</li>
+            <li>טקסט חלופי (alt) לתמונות תוכן</li>
+            <li>ניווט מלא באמצעות מקלדת בלבד</li>
+            <li>מבנה כפתורים ושדות טופס עם תוויות ברורות</li>
+            <li>תמיכה במצב כהה ובנגישות מותאמת אישית</li>
+          </ul>
+
+          <h2 id="features">3. אמצעי הנגישות באתר</h2>
+          <p>
+            בכל עמוד באתר זמין כפתור עגול בצבע כחול בפינה השמאלית-תחתונה של המסך, שכותרתו
+            <strong>"נגישות"</strong>. לחיצה על הכפתור פותחת תפריט נגישות עם האפשרויות הבאות:
+          </p>
+          <ul>
+            <li>הגדלה והקטנה של גודל הטקסט (טווח 80%–160%)</li>
+            <li>מצב ניגודיות גבוהה (טקסט לבן על רקע שחור עם הדגשות צהובות)</li>
+            <li>היפוך צבעים</li>
+            <li>הצגה בגווני אפור</li>
+            <li>החלפת הגופן לגופן קריא ללא סוגי "סריף" ואותיות נטויות</li>
+            <li>הדגשת קישורים בקו תחתי</li>
+            <li>עצירת אנימציות ותנועה אוטומטית</li>
+            <li>הגדלת סמן העכבר</li>
+            <li>איפוס מלא של ההתאמות</li>
+          </ul>
+          <p>
+            ההגדרות נשמרות בדפדפן המקומי שלכם ויחזרו אוטומטית בכל ביקור חוזר באתר באותו מכשיר.
+            ניתן לפתוח את התפריט גם בעזרת קיצור המקלדת
+            <strong>Alt + Shift + A</strong>.
+          </p>
+
+          <h2 id="compat">4. תאימות לדפדפנים ולטכנולוגיה מסייעת</h2>
+          <p>האתר נבדק בהצלחה בסביבות הבאות:</p>
+          <ul>
+            <li>דפדפנים: Google Chrome, Mozilla Firefox, Microsoft Edge ו-Apple Safari — בגרסאות עדכניות</li>
+            <li>קוראי מסך: NVDA ו-JAWS על Windows; VoiceOver על macOS ו-iOS; TalkBack על Android</li>
+            <li>מערכות הפעלה: Windows 10 ו-11, macOS, iOS ו-Android בגרסאותיהן העדכניות</li>
+          </ul>
+          <p>
+            ייתכנו פערי תצוגה בגרסאות ישנות של דפדפנים או של טכנולוגיה מסייעת.
+            אם אינכם מצליחים לצרוך את התוכן, פנו אלינו ונשמח לעזור באמצעי חלופי.
+          </p>
+
+          <h2 id="limitations">5. חלקים שטרם הונגשו במלואם</h2>
+          <p>
+            למרות מאמצי המשרד, ייתכנו רכיבים מסוימים שטרם הונגשו במלואם, או שעדיין נמצאים בתהליך התאמה:
+          </p>
+          <ul>
+            <li>אנימציות ותכני וידאו דקורטיביים — ניתן להשבית באמצעות תפריט הנגישות</li>
+            <li>תמונות פרויקטים שצולמו בשטח — חלקן נושאות תיאור כללי בלבד; אנו פועלים להוסיף תיאורי טקסט מפורטים יותר</li>
+            <li>גופנים חיצוניים הנטענים מ-Google Fonts — בעת תקלה בטעינתם משמש גופן מערכת חלופי</li>
+          </ul>
+          <p>
+            אנו ממשיכים לפעול לשיפור מתמיד של רמת הנגישות באתר, ומקבלים בברכה כל פנייה,
+            הערה או הצעה לשיפור.
+          </p>
+
+          <h2 id="coordinator">6. רכז הנגישות ויצירת קשר</h2>
+          <p>
+            פניות בנושאי נגישות, בקשות לעזרה בקבלת המידע באמצעי חלופי או דיווח על תקלת נגישות —
+            ניתן להפנות אל רכז הנגישות של המשרד:
+          </p>
+          <dl>
+            <div>
+              <dt>רכז הנגישות</dt>
+              <dd>בעל המשרד — די.אם.או. אדריכלים בע"מ</dd>
+            </div>
+            <div>
+              <dt>טלפון</dt>
+              <dd><a href="tel:+972533110717" dir="ltr">053-311-0717</a></dd>
+            </div>
+            <div>
+              <dt>אימייל</dt>
+              <dd><a href="mailto:dmoarc@gmail.com">dmoarc@gmail.com</a></dd>
+            </div>
+            <div>
+              <dt>זמן מענה</dt>
+              <dd>עד 5 ימי עסקים</dd>
+            </div>
+          </dl>
+          <p>
+            אנא פרטו בפנייתכם את כתובת הדף הרלוונטי, את סוג הליקוי שנתקלתם בו ואת אמצעי הקריאה
+            (דפדפן, קורא מסך וכו'), כדי שנוכל לטפל בפנייה במהירות וביעילות.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html#top" class="logo logo--light">
+          <span class="logo__mark">
+            <svg viewBox="0 0 40 40" aria-hidden="true">
+              <path d="M4 36 V10 L20 4 L36 10 V36 H24 V22 H16 V36 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="logo__text"><strong>DMO</strong><em>אדריכלים</em></span>
+        </a>
+        <p>אדריכלות שמספרת סיפור, עיצוב שנבנה סביבכם. מלווים אתכם מהרעיון ועד המפתח.</p>
+      </div>
+
+      <div>
+        <h4>ניווט</h4>
+        <ul class="footer__links">
+          <li><a href="index.html#about">אודות</a></li>
+          <li><a href="index.html#services">שירותים</a></li>
+          <li><a href="index.html#process">תהליך</a></li>
+          <li><a href="projects.html">פרויקטים</a></li>
+          <li><a href="index.html#testimonials">המלצות</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>שירותים</h4>
+        <ul class="footer__links">
+          <li>ניהול פרויקטים</li>
+          <li>פיקוח בנייה</li>
+          <li>הכנת חוזים ומפרטים</li>
+          <li>מכרזי קבלנים</li>
+          <li>תכנון תוספות ושיפוצים</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>צור קשר</h4>
+        <ul class="footer__links">
+          <li><a href="tel:+972533110717" dir="ltr">053-311-0717</a></li>
+          <li><a href="mailto:dmoarc@gmail.com">dmoarc@gmail.com</a></li>
+          <li>אזור גוש דן והסביבה</li>
+          <li>א׳–ה׳ · 08:30–15:30</li>
+        </ul>
+        <div class="contact__social footer__social">
+          <a href="https://wa.me/972533110717" target="_blank" rel="noopener" aria-label="וואטסאפ">WA</a>
+          <a href="mailto:dmoarc@gmail.com" aria-label="אימייל">@</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <span>© <span id="year"></span> די.אם.או. אדריכלים בע״מ · כל הזכויות שמורות</span>
+      <span>Designed with ✦ detail</span>
+    </div>
+    <div class="container footer__legal">
+      <a href="accessibility.html" aria-current="page">הצהרת נגישות</a>
+      <a href="privacy.html">מדיניות פרטיות</a>
+      <a href="terms.html">תנאי שימוש</a>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/972533110717?text=%D7%94%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D" target="_blank" rel="noopener" class="wa" aria-label="פתיחת שיחה בוואטסאפ">
+    <span class="wa__pulse" aria-hidden="true"></span>
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path fill="#fff" d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.5.7 4.8 1.9 6.8L3 29l6.9-2.2c2 1 4.2 1.6 6.1 1.6 7 0 12.5-5.5 12.5-12.5S23 3 16 3zm6.6 17.4c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.4.1-2.2-.1-.5-.2-1.2-.4-2.1-.8-3.6-1.5-5.9-5.1-6.1-5.3-.2-.2-1.4-1.9-1.4-3.7 0-1.7.9-2.6 1.2-2.9.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.4 1.1 2.6.1.2.1.4 0 .6-.1.2-.2.3-.4.5l-.5.6c-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.2 2.6 1.6 3 1.8.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.4-.3.7-.2.3.1 2 1 2.4 1.2.4.2.6.3.7.4.1.2.1.9-.2 1.6z"/>
+    </svg>
+    <span class="wa__label">וואטסאפ</span>
+  </a>
+
+  <button class="to-top" id="toTop" aria-label="חזרה למעלה">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <div class="cursor" aria-hidden="true"></div>
+
+  <script src="assets/js/a11y.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
