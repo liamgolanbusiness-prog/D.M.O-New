@@ -1138,6 +1138,76 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.15; font-weight: 700; letter-spacing:
   text-align: center;
   font-size: 0.875rem;
 }
+.form-ok.is-error {
+  background: rgba(220,90,90,.08);
+  color: #e57373;
+  border-color: rgba(220,90,90,.35);
+}
+
+/* ========= 404 page ========= */
+.error-hero {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.error-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px 500px at 80% 30%, rgba(201,163,106,.10), transparent 60%),
+    radial-gradient(600px 400px at 20% 80%, rgba(201,163,106,.06), transparent 60%);
+  pointer-events: none;
+}
+.error-hero__inner {
+  position: relative;
+  text-align: center;
+  max-width: 760px;
+}
+.error-hero__code {
+  display: block;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: clamp(7rem, 22vw, 14rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  background: linear-gradient(180deg, var(--accent) 0%, rgba(201,163,106,.15) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 18px;
+  user-select: none;
+}
+.error-hero__title {
+  font-family: 'Heebo', sans-serif;
+  font-size: clamp(1.5rem, 3.6vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 14px 0 18px;
+}
+.error-hero__lede {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto 30px;
+}
+.error-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .error-hero { padding: 100px 0 60px; min-height: auto; }
+  .error-hero__cta { flex-direction: column; align-items: stretch; }
+  .error-hero__cta .btn { width: 100%; justify-content: center; }
+}
 
 /* ========= Footer ========= */
 .footer {
@@ -2191,7 +2261,8 @@ body.lightbox-open { overflow: hidden; }
     position: relative;
   }
   .nav__list a:hover { color: var(--text); background: rgba(255,255,255,.04); }
-  .nav__list a.is-active { color: var(--accent); }
+  .nav__list a.is-active,
+  .nav__list a[aria-current="page"] { color: var(--accent); }
   .header__cta { display: inline-flex; padding: 10px 20px; font-size: 0.875rem; min-height: 42px; }
   .menu-toggle { display: none; }
 

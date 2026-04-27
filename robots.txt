@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dmoarc.com/sitemap.xml
+Sitemap: https://dmo-arc.com/sitemap.xml

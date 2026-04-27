@@ -248,27 +248,69 @@
     apply();
   }
 
-  /* ========= Form: pretty submit (demo) ========= */
+  /* ========= Form: real submit via Web3Forms ========= */
   const form = document.querySelector('.contact__form');
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+  if (form) {
     const btn = form.querySelector('button[type="submit"]');
     const ok = form.querySelector('.form-ok');
-    const original = btn.innerHTML;
-    btn.disabled = true;
-    btn.innerHTML = 'שולח…';
-    setTimeout(() => {
-      ok.hidden = false;
-      form.reset();
-      btn.innerHTML = original;
-      btn.disabled = false;
-      setTimeout(() => (ok.hidden = true), 5000);
-    }, 1100);
-  });
+    const originalBtn = btn?.innerHTML;
+
+    const showStatus = (el, msg, isError) => {
+      if (!el) return;
+      el.textContent = msg;
+      el.hidden = false;
+      el.classList.toggle('is-error', !!isError);
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      btn.disabled = true;
+      btn.innerHTML = 'שולח…';
+      ok && (ok.hidden = true);
+
+      const formData = new FormData(form);
+      const accessKey = formData.get('access_key');
+      const isPlaceholder = !accessKey || /YOUR_WEB3FORMS_ACCESS_KEY_HERE/.test(accessKey);
+
+      try {
+        if (isPlaceholder) throw new Error('access_key_missing');
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          showStatus(ok, 'תודה! ההודעה נשלחה. נחזור אליכם בהקדם.', false);
+          form.reset();
+          setTimeout(() => (ok.hidden = true), 6000);
+        } else {
+          throw new Error(data.message || 'submit_failed');
+        }
+      } catch (err) {
+        const name = encodeURIComponent(formData.get('name') || '');
+        const phone = encodeURIComponent(formData.get('phone') || '');
+        const email = encodeURIComponent(formData.get('email') || '');
+        const service = encodeURIComponent(formData.get('service') || '');
+        const message = encodeURIComponent(formData.get('message') || '');
+        const body = `שם: ${decodeURIComponent(name)}%0Aטלפון: ${decodeURIComponent(phone)}%0Aאימייל: ${decodeURIComponent(email)}%0Aתחום: ${decodeURIComponent(service)}%0A%0A${decodeURIComponent(message)}`;
+        const mailto = `mailto:dmoarc@gmail.com?subject=${encodeURIComponent('פנייה מהאתר')}&body=${body}`;
+        showStatus(
+          ok,
+          'שליחה דרך השרת נכשלה. פותחים עבורכם הודעת אימייל...',
+          true
+        );
+        window.location.href = mailto;
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalBtn;
+      }
+    });
+  }
 
   /* ========= Custom cursor (desktop) ========= */
   if (!isCoarse && !prefersReduced) {

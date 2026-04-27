@@ -11,17 +11,27 @@
   <meta name="keywords" content="ניהול פרויקטים, פיקוח בנייה, ניהול בנייה, הכנת חוזים, מכרזי קבלנים, תכנון שיפוצים, תוספות בנייה, אדריכלים, גוש דן, בני ברק, אלעד, DMO" />
   <meta name="author" content="DMO Architects" />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://dmoarc.com/" />
+  <link rel="canonical" href="https://dmo-arc.com/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="he_IL" />
   <meta property="og:title" content="די.אם.או. אדריכלים — ניהול ופיקוח בנייה ברמה הגבוהה ביותר" />
   <meta property="og:description" content="ניהול פרויקטים, פיקוח בנייה, תכנון תוספות ושיפוצים — ליווי צמוד מהרעיון ועד למסירת המפתח. פעילים בגוש דן והסביבה." />
-  <meta property="og:image" content="assets/img/staircase.jpg" />
-  <meta property="og:url" content="https://dmoarc.com/" />
+  <meta property="og:image" content="https://dmo-arc.com/assets/img/staircase.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://dmo-arc.com/" />
+  <meta property="og:site_name" content="DMO Architects" />
+  <meta name="twitter:title" content="די.אם.או. אדריכלים — ניהול ופיקוח בנייה" />
+  <meta name="twitter:description" content="ניהול פרויקטים, פיקוח בנייה, תכנון תוספות ושיפוצים — ליווי צמוד מהרעיון ועד למסירת המפתח." />
+  <meta name="twitter:image" content="https://dmo-arc.com/assets/img/staircase.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230d0e11'/%3E%3Ctext x='50%25' y='54%25' font-family='serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23c9a36a' dominant-baseline='middle'%3EDMO%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="DMO אדריכלים" />
+  <meta name="application-name" content="DMO Architects" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,8 +46,8 @@
     "@type": "ProfessionalService",
     "name": "די.אם.או. אדריכלים בע\"מ",
     "alternateName": "DMO Architects",
-    "image": "https://dmoarc.com/assets/img/staircase.jpg",
-    "url": "https://dmoarc.com/",
+    "image": "https://dmo-arc.com/assets/img/staircase.jpg",
+    "url": "https://dmo-arc.com/",
     "telephone": "+972-53-311-0717",
     "email": "dmoarc@gmail.com",
     "foundingDate": "2010",
@@ -616,7 +626,12 @@
           </div>
         </div>
 
-        <form class="contact__form" data-reveal="left" novalidate>
+        <form class="contact__form" data-reveal="left" novalidate action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
+          <input type="hidden" name="subject" value="פנייה חדשה מאתר DMO Architects" />
+          <input type="hidden" name="from_name" value="DMO Architects Website" />
+          <input type="hidden" name="redirect" value="false" />
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important;" aria-hidden="true" />
           <div class="field">
             <input type="text" id="fname" name="name" placeholder=" " required autocomplete="name" />
             <label for="fname">שם מלא</label>

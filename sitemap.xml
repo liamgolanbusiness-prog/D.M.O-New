@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dmoarc.com/</loc>
+    <loc>https://dmo-arc.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/projects.html</loc>
+    <loc>https://dmo-arc.com/projects.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/project.html?id=penthouse-elad</loc>
+    <loc>https://dmo-arc.com/project.html?id=penthouse-elad</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/project.html?id=penthouse-ben-david</loc>
+    <loc>https://dmo-arc.com/project.html?id=penthouse-ben-david</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/project.html?id=wing-addition-elad</loc>
+    <loc>https://dmo-arc.com/project.html?id=wing-addition-elad</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/project.html?id=school-maimon</loc>
+    <loc>https://dmo-arc.com/project.html?id=school-maimon</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/project.html?id=stone-cladding-bnei-brak</loc>
+    <loc>https://dmo-arc.com/project.html?id=stone-cladding-bnei-brak</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/project.html?id=electrical-plumbing</loc>
+    <loc>https://dmo-arc.com/project.html?id=electrical-plumbing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/project.html?id=various-buildings</loc>
+    <loc>https://dmo-arc.com/project.html?id=various-buildings</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/accessibility.html</loc>
+    <loc>https://dmo-arc.com/accessibility.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/privacy.html</loc>
+    <loc>https://dmo-arc.com/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://dmoarc.com/terms.html</loc>
+    <loc>https://dmo-arc.com/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

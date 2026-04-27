@@ -85,17 +85,22 @@
     }
 
     /* Update meta + head fields */
+    const SITE_ORIGIN = 'https://dmo-arc.com';
+    const heroImage = `${SITE_ORIGIN}/${project.images[0]}`;
     document.title = `${project.title} | DMO אדריכלים`;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', project.summary);
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', `${project.title} — DMO אדריכלים`);
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', project.summary);
-    const ogImg = document.querySelector('meta[property="og:image"]');
-    if (ogImg) ogImg.setAttribute('content', project.images[0]);
+    const setMeta = (sel, value) => { const el = document.querySelector(sel); if (el && value != null) el.setAttribute('content', value); };
+    setMeta('meta[name="description"]', project.summary);
+    setMeta('meta[name="keywords"]', `${project.title}, ${project.categoryLabel}, ${project.location}, DMO, אדריכלים`);
+    setMeta('meta[property="og:type"]', 'article');
+    setMeta('meta[property="og:title"]', `${project.title} — DMO אדריכלים`);
+    setMeta('meta[property="og:description"]', project.summary);
+    setMeta('meta[property="og:image"]', heroImage);
+    setMeta('meta[property="og:url"]', `${SITE_ORIGIN}/project.html?id=${encodeURIComponent(project.slug)}`);
+    setMeta('meta[name="twitter:title"]', `${project.title} — DMO אדריכלים`);
+    setMeta('meta[name="twitter:description"]', project.summary);
+    setMeta('meta[name="twitter:image"]', heroImage);
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute('href', `https://dmoarc.com/project.html?id=${encodeURIComponent(project.slug)}`);
+    if (canonical) canonical.setAttribute('href', `${SITE_ORIGIN}/project.html?id=${encodeURIComponent(project.slug)}`);
 
     /* Sub-hero text */
     const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
@@ -177,12 +182,26 @@
       '@type': 'CreativeWork',
       name: project.title,
       description: project.summary,
-      image: project.images.map((i) => `https://dmoarc.com/${i}`),
-      author: { '@type': 'Organization', name: 'די.אם.או. אדריכלים בע"מ' },
+      image: project.images.map((i) => `${SITE_ORIGIN}/${i}`),
+      author: { '@type': 'Organization', name: 'די.אם.או. אדריכלים בע"מ', url: SITE_ORIGIN },
       locationCreated: { '@type': 'Place', name: project.location },
       dateCreated: project.year
     });
     document.head.appendChild(ld);
+
+    /* BreadcrumbList JSON-LD */
+    const crumbLd = document.createElement('script');
+    crumbLd.type = 'application/ld+json';
+    crumbLd.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'בית', item: `${SITE_ORIGIN}/` },
+        { '@type': 'ListItem', position: 2, name: 'פרויקטים', item: `${SITE_ORIGIN}/projects.html` },
+        { '@type': 'ListItem', position: 3, name: project.title, item: `${SITE_ORIGIN}/project.html?id=${encodeURIComponent(project.slug)}` }
+      ]
+    });
+    document.head.appendChild(crumbLd);
 
     /* ============== Lightbox ============== */
     const lb = document.getElementById('lightbox');

@@ -1,0 +1,34 @@
+{
+  "name": "די.אם.או. אדריכלים — DMO Architects",
+  "short_name": "DMO Architects",
+  "description": "ניהול פרויקטים, פיקוח בנייה, תכנון תוספות ושיפוצים — די.אם.או. אדריכלים, גוש דן.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d0e11",
+  "theme_color": "#0d0e11",
+  "lang": "he",
+  "dir": "rtl",
+  "categories": ["business", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/apple-touch-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "180x180",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/maskable-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}
