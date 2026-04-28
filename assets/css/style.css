@@ -474,52 +474,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.15; font-weight: 700; letter-spacing:
 
 .hero__scroll { display: none; }
 
-/* ========= Marquee ========= */
-.marquee {
-  border-block: 1px solid var(--line);
-  padding: 16px 0;
-  overflow: hidden;
-  background: var(--bg-2);
-  position: relative;
-}
-.marquee__track {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  direction: ltr;
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  color: var(--text);
-  will-change: transform;
-}
-.marquee__group {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.marquee__item {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-.marquee__item .sep {
-  color: var(--accent);
-  font-size: .7em;
-  margin-inline: 18px;
-  display: inline-block;
-}
-@keyframes scrollX {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee__track { animation: none; }
-}
-
 /* ========= About ========= */
 .about { background: var(--bg); }
 .about__grid {
@@ -1584,7 +1538,6 @@ html.a11y-high-contrast .stats,
 html.a11y-high-contrast .cta,
 html.a11y-high-contrast .contact,
 html.a11y-high-contrast .footer,
-html.a11y-high-contrast .marquee,
 html.a11y-high-contrast .legal {
   background: #000 !important;
 }
@@ -1639,7 +1592,6 @@ html.a11y-no-motion *::after {
   transition-duration: .001ms !important;
   scroll-behavior: auto !important;
 }
-html.a11y-no-motion .marquee__track { animation: none !important; }
 html.a11y-no-motion .preloader { display: none !important; }
 html.a11y-no-motion .hero__canvas { display: none !important; }
 
@@ -2221,8 +2173,6 @@ body.lightbox-open { overflow: hidden; }
   .hero__meta div { padding: 0 18px; }
   .hero__meta dd { font-size: 2.75rem; }
   .hero__meta dt { font-size: 0.6875rem; letter-spacing: .2em; }
-  .marquee__track { font-size: 1.75rem; }
-  .marquee__item .sep { margin-inline: 26px; }
 
   .services__grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .process__list { grid-template-columns: repeat(2, 1fr); gap: 14px; }

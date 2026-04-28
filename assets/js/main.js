@@ -18,60 +18,6 @@
   // Fallback
   setTimeout(() => preloader?.classList.add('is-hidden'), 2500);
 
-  /* ========= Marquee (JS-driven seamless loop) ========= */
-  const initMarquee = () => {
-    const track = document.querySelector('.marquee__track');
-    if (!track) return;
-    const groups = track.querySelectorAll('.marquee__group');
-    if (groups.length < 2) return;
-    const first = groups[0];
-    const originalHTML = first.innerHTML;
-    if (!originalHTML.trim()) return;
-
-    const fill = () => {
-      first.innerHTML = originalHTML;
-      let safety = 0;
-      while (first.scrollWidth < window.innerWidth + 100 && safety < 30) {
-        first.insertAdjacentHTML('beforeend', originalHTML);
-        safety++;
-      }
-      groups[1].innerHTML = first.innerHTML;
-    };
-
-    fill();
-
-    track.style.animation = 'none';
-    track.style.willChange = 'transform';
-
-    const speed = 60; // px / second
-    let x = 0;
-    let last = performance.now();
-    let paused = prefersReduced || document.documentElement.classList.contains('a11y-no-motion');
-
-    const tick = (now) => {
-      const dt = Math.min((now - last) / 1000, 0.1);
-      last = now;
-      if (!paused) {
-        x -= speed * dt;
-        const w = first.scrollWidth;
-        if (w > 0 && Math.abs(x) >= w) x += w;
-        track.style.transform = `translate3d(${x}px, 0, 0)`;
-      } else {
-        last = now;
-      }
-      requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-
-    let resizeT;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeT);
-      resizeT = setTimeout(() => { x = 0; fill(); }, 150);
-    });
-  };
-  if (document.readyState === 'complete') initMarquee();
-  else window.addEventListener('load', initMarquee);
-
   /* ========= Footer year ========= */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
