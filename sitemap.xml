@@ -1,62 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <url>
     <loc>https://dmo-arc.com/</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://dmo-arc.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmo-arc.com/" />
+    <image:image>
+      <image:loc>https://dmo-arc.com/assets/logo.png</image:loc>
+      <image:title>DMO Architects · די.אם.או. אדריכלים</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dmo-arc.com/assets/img/staircase.jpg</image:loc>
+      <image:title>פרויקט מדרגות עיצוב — DMO Architects</image:title>
+    </image:image>
   </url>
+
   <url>
     <loc>https://dmo-arc.com/projects.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://dmo-arc.com/projects.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmo-arc.com/projects.html" />
   </url>
+
+  <url>
+    <loc>https://dmo-arc.com/blog/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://dmo-arc.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dmo-arc.com/blog/" />
+  </url>
+
+  <url>
+    <loc>https://dmo-arc.com/blog/why-construction-supervision-matters.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://dmo-arc.com/blog/why-construction-supervision-matters.html" />
+    <image:image>
+      <image:loc>https://dmo-arc.com/assets/img/crane.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://dmo-arc.com/blog/contractor-tender-guide.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://dmo-arc.com/blog/contractor-tender-guide.html" />
+    <image:image>
+      <image:loc>https://dmo-arc.com/assets/img/steel-frame.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://dmo-arc.com/blog/project-management-construction.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://dmo-arc.com/blog/project-management-construction.html" />
+    <image:image>
+      <image:loc>https://dmo-arc.com/assets/img/hallway.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://dmo-arc.com/blog/renovation-vs-addition.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he-IL" href="https://dmo-arc.com/blog/renovation-vs-addition.html" />
+    <image:image>
+      <image:loc>https://dmo-arc.com/assets/img/tile-niches.jpg</image:loc>
+    </image:image>
+  </url>
+
   <url>
     <loc>https://dmo-arc.com/project.html?id=penthouse-elad</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dmo-arc.com/project.html?id=penthouse-ben-david</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dmo-arc.com/project.html?id=wing-addition-elad</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dmo-arc.com/project.html?id=school-maimon</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dmo-arc.com/project.html?id=stone-cladding-bnei-brak</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dmo-arc.com/project.html?id=electrical-plumbing</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dmo-arc.com/project.html?id=various-buildings</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://dmo-arc.com/accessibility.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://dmo-arc.com/privacy.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://dmo-arc.com/terms.html</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

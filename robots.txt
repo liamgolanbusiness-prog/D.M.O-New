@@ -1,4 +1,23 @@
+# robots.txt for dmo-arc.com — DMO Architects · די.אם.או. אדריכלים
+# Allow all major crawlers full access.
+
 User-agent: *
 Allow: /
+Disallow: /404.html
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Crawl politeness
+Crawl-delay: 1
 
 Sitemap: https://dmo-arc.com/sitemap.xml

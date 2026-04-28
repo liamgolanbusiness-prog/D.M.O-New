@@ -13,15 +13,21 @@
   "categories": ["business", "lifestyle", "productivity"],
   "icons": [
     {
-      "src": "assets/favicon.svg",
-      "type": "image/svg+xml",
-      "sizes": "any",
+      "src": "assets/logo.png",
+      "type": "image/png",
+      "sizes": "192x192",
       "purpose": "any"
     },
     {
-      "src": "assets/apple-touch-icon.svg",
+      "src": "assets/logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon.svg",
       "type": "image/svg+xml",
-      "sizes": "180x180",
+      "sizes": "any",
       "purpose": "any"
     },
     {
