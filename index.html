@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0d0e11" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
 
   <title>די.אם.או. אדריכלים | DMO Architects — ניהול פרויקטים ופיקוח בנייה בגוש דן</title>
   <meta name="description" content="די.אם.או. אדריכלים (DMO Architects) — משרד מוביל לניהול פרויקטים, פיקוח בנייה, תכנון תוספות ושיפוצים, הכנת חוזים ומכרזי קבלנים. פעילים בבני ברק, אלעד וגוש דן מאז 2010. התקשרו: 053-311-0717." />
@@ -63,7 +63,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap" rel="stylesheet" />
 
   <link rel="preload" as="image" href="assets/img/staircase.jpg" />
-  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=8" />
 
   <script type="application/ld+json">
   {
@@ -308,7 +308,7 @@
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <!-- Header -->
-  <header class="header" id="header">
+  <header class="header is-scrolled" id="header">
     <div class="container header__row">
       <a href="#top" class="logo" aria-label="די אם או אדריכלים - בית">
         <span class="logo__mark">
@@ -357,21 +357,17 @@
 
     <!-- HERO -->
     <section class="hero" id="top" aria-label="ברוכים הבאים">
-      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
-      <div class="hero__grid" aria-hidden="true"></div>
-      <div class="hero__noise" aria-hidden="true"></div>
-
       <div class="hero__inner container">
         <div class="hero__eyebrow">
           <span class="hero__dot"></span>
-          <span>DMO · ניהול ופיקוח בנייה · גוש דן</span>
+          <span>DMO אדריכלים · ניהול ופיקוח בנייה · גוש דן</span>
         </div>
 
         <h1 class="hero__title">
           <span class="sr-only">די.אם.או. אדריכלים — DMO Architects · ניהול ופיקוח בנייה בגוש דן.</span>
-          <span class="line" aria-hidden="true"><span>בנייה מנוהלת.</span></span>
-          <span class="line" aria-hidden="true"><span class="is-serif is-accent">פיקוח שלא מתפשר.</span></span>
-          <span class="line" aria-hidden="true"><span>פרויקט שמגיע למסירה.</span></span>
+          <span class="line">בנייה מנוהלת.</span>
+          <span class="line"><span class="is-accent">פיקוח שלא מתפשר.</span></span>
+          <span class="line">פרויקט שמגיע למסירה.</span>
         </h1>
 
         <p class="hero__lede">
@@ -381,65 +377,30 @@
         </p>
 
         <div class="hero__cta">
-          <a href="#contact" class="btn btn--primary">
-            <span>קביעת פגישה</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-8 6 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+          <a href="#contact" class="btn btn--primary">קביעת פגישה</a>
           <a href="projects.html" class="btn btn--ghost">לפרויקטים שלנו</a>
         </div>
-
       </div>
-
-      <a href="#about" class="hero__scroll" aria-label="גלול למטה">
-        <span class="hero__scroll-line"></span>
-        <span class="hero__scroll-text">גלילה</span>
-      </a>
     </section>
 
-
-    <!-- ABOUT -->
-    <section class="about section" id="about" aria-labelledby="about-title">
-      <div class="container about__grid">
-        <div class="about__media" data-reveal="right">
-          <div class="about__image about__image--main">
-            <img src="assets/img/staircase.jpg" alt="תכנון מדרגות דרמטיות עם גופי תאורה זהובים תלויים — פרויקט של DMO" loading="lazy" />
-          </div>
-          <div class="about__image about__image--sub">
-            <img src="assets/img/lobby-rings.jpg" alt="לובי גבוה עם תאורת טבעות זהובה — עיצוב של משרד DMO" loading="lazy" />
-          </div>
-          <div class="about__badge" aria-hidden="true">
-            <span>Since</span>
-            <strong>2010</strong>
-          </div>
+    <!-- STATS BAR (just under hero) -->
+    <section class="stats" aria-label="נתוני המשרד">
+      <div class="container stats__grid">
+        <div class="stat">
+          <strong><span data-counter="15">0</span>+</strong>
+          <span>שנות ניסיון</span>
         </div>
-
-        <div class="about__content" data-reveal="left">
-          <span class="eyebrow">אודות המשרד</span>
-          <h2 id="about-title" class="section-title">
-            <span class="is-serif is-accent">פרויקט שלכם —</span>
-            כפרויקט אישי שלנו.
-          </h2>
-          <p class="lead">
-            משרדנו הוקם בשנת 2010, לאחר שמונה שנים של ניהול תחום הבנייה במוסדות ציבוריים.
-            מאז 2002 ועד היום, בעל המשרד עוסק בניהול ופיקוח בנייה — בליווי קורסים, לימודים
-            ותעודות מהטכניון וממכללות מובילות, כולל הנדסאי אדריכלות ועיצוב פנים, מנהל עבודה
-            בבניין, ניהול פרויקטים ופיקוח בנייה.
-          </p>
-          <p class="lead">
-            ב־15 השנים האחרונות אנחנו מתמקדים בעיקר בליווי, פיקוח וניהול של פרויקטים בבנייה —
-            כי אנחנו מאמינים שלכל לקוח מגיע לקבל את התוצאה הטובה ביותר, באיכות ביצוע ללא פשרות.
-          </p>
-          <ul class="about__list">
-            <li><span>01</span> ניהול פרויקטים מהרעיון ועד למסירת המפתח</li>
-            <li><span>02</span> פיקוח בנייה צמוד לאיכות וטיב העבודה</li>
-            <li><span>03</span> הכנת חוזים ומפרטים אינדיבידואליים</li>
-            <li><span>04</span> הוצאת מכרזים לקבלנים ועזרה בבחירתם</li>
-            <li><span>05</span> תכנון ועיצוב תוספות בנייה ושיפוצים</li>
-          </ul>
-          <div class="about__actions">
-            <a href="#services" class="btn btn--primary">השירותים שלנו</a>
-            <a href="projects.html" class="btn btn--link">צפו בפרויקטים ←</a>
-          </div>
+        <div class="stat">
+          <strong><span data-counter="180">0</span>+</strong>
+          <span>פרויקטים הושלמו</span>
+        </div>
+        <div class="stat">
+          <strong><span data-counter="45">0</span></strong>
+          <span>ערים ברחבי הארץ</span>
+        </div>
+        <div class="stat">
+          <strong><span data-counter="98">0</span>%</strong>
+          <span>לקוחות ממליצים</span>
         </div>
       </div>
     </section>
@@ -448,10 +409,9 @@
     <section class="services section" id="services" aria-labelledby="services-title">
       <div class="container">
         <header class="section-head" data-reveal="up">
-          <span class="eyebrow">שירותים</span>
+          <span class="eyebrow">השירותים שלנו</span>
           <h2 id="services-title" class="section-title">
-            <span class="is-serif">חמישה תחומי התמחות</span> —
-            מהרגע הראשון ועד למסירת המפתח.
+            חמישה תחומי התמחות — מהרגע הראשון ועד למסירת המפתח
           </h2>
           <p class="section-sub">
             המומחיות של המשרד היא ניהול ופיקוח בנייה, לצד תכנון ועיצוב תוספות ושיפוצים. כל שירות נועד להבטיח לכם פרויקט שמתנהל נכון, באיכות ובלוחות זמנים.
@@ -532,13 +492,59 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div class="about__media" data-reveal="right">
+          <div class="about__image about__image--main">
+            <img src="assets/img/staircase.jpg" alt="תכנון מדרגות דרמטיות עם גופי תאורה זהובים תלויים — פרויקט של DMO" loading="lazy" />
+          </div>
+          <div class="about__image about__image--sub">
+            <img src="assets/img/lobby-rings.jpg" alt="לובי גבוה עם תאורת טבעות זהובה — עיצוב של משרד DMO" loading="lazy" />
+          </div>
+          <div class="about__badge" aria-hidden="true">
+            <span>Since</span>
+            <strong>2010</strong>
+          </div>
+        </div>
+
+        <div class="about__content" data-reveal="left">
+          <span class="eyebrow">אודות המשרד</span>
+          <h2 id="about-title" class="section-title">
+            הפרויקט שלכם — כפרויקט אישי שלנו
+          </h2>
+          <p class="lead">
+            משרדנו הוקם בשנת 2010, לאחר שמונה שנים של ניהול תחום הבנייה במוסדות ציבוריים.
+            מאז 2002 ועד היום, בעל המשרד עוסק בניהול ופיקוח בנייה — בליווי קורסים, לימודים
+            ותעודות מהטכניון וממכללות מובילות, כולל הנדסאי אדריכלות ועיצוב פנים, מנהל עבודה
+            בבניין, ניהול פרויקטים ופיקוח בנייה.
+          </p>
+          <p class="lead">
+            ב־15 השנים האחרונות אנחנו מתמקדים בעיקר בליווי, פיקוח וניהול של פרויקטים בבנייה —
+            כי אנחנו מאמינים שלכל לקוח מגיע לקבל את התוצאה הטובה ביותר, באיכות ביצוע ללא פשרות.
+          </p>
+          <ul class="about__list">
+            <li><span>01</span> ניהול פרויקטים מהרעיון ועד למסירת המפתח</li>
+            <li><span>02</span> פיקוח בנייה צמוד לאיכות וטיב העבודה</li>
+            <li><span>03</span> הכנת חוזים ומפרטים אינדיבידואליים</li>
+            <li><span>04</span> הוצאת מכרזים לקבלנים ועזרה בבחירתם</li>
+            <li><span>05</span> תכנון ועיצוב תוספות בנייה ושיפוצים</li>
+          </ul>
+          <div class="about__actions">
+            <a href="#contact" class="btn btn--primary">קביעת פגישה</a>
+            <a href="projects.html" class="btn btn--link">צפו בפרויקטים ←</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PROCESS -->
     <section class="process section" id="process" aria-labelledby="process-title">
       <div class="container">
         <header class="section-head" data-reveal="up">
-          <span class="eyebrow">התהליך</span>
+          <span class="eyebrow">התהליך שלנו</span>
           <h2 id="process-title" class="section-title">
-            <span class="is-serif">חמישה שלבים</span> מהחלום אל המפתח.
+            חמישה שלבים מהחלום אל המפתח
           </h2>
         </header>
 
@@ -575,25 +581,18 @@
     <!-- PROJECTS -->
     <section class="projects section" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <header class="section-head section-head--split" data-reveal="up">
-          <div>
-            <span class="eyebrow">פרויקטים נבחרים</span>
-            <h2 id="projects-title" class="section-title">
-              <span class="is-serif">עבודות</span> שמדברות בשפה אחת — מקצוענות.
-            </h2>
-          </div>
-          <a href="projects.html" class="btn btn--link">לכל הפרויקטים ←</a>
+        <header class="section-head" data-reveal="up">
+          <span class="eyebrow">פרויקטים נבחרים</span>
+          <h2 id="projects-title" class="section-title">
+            עבודות שמדברות בשפה אחת — מקצוענות
+          </h2>
+          <p class="section-sub">
+            מבחר פרויקטים בולטים מתיק העבודות שלנו. כל פרויקט לווה ונוהל מהשלב הראשון של התכנון ועד למסירת המפתח.
+          </p>
         </header>
 
-        <div class="projects__filters" role="tablist" aria-label="סינון פרויקטים">
-          <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">הכל</button>
-          <button class="chip" role="tab" aria-selected="false" data-filter="architecture">אדריכלות</button>
-          <button class="chip" role="tab" aria-selected="false" data-filter="interior">עיצוב פנים</button>
-          <button class="chip" role="tab" aria-selected="false" data-filter="construction">ביצוע ומערכות</button>
-        </div>
-
         <div class="projects__grid">
-          <a class="card" href="project.html?id=penthouse-elad" data-cat="interior" data-reveal="up" style="--i:0">
+          <a class="card" href="project.html?id=penthouse-elad" data-reveal="up" style="--i:0">
             <div class="card__media"><img src="assets/projects/penthouse-elad/01.jpeg" alt="פנטהאוז יוקרה באלעד — תאורת בריסטול וריצוף מדוקקים" loading="lazy" /></div>
             <div class="card__caption">
               <h3>פנטהאוז יוקרה · אלעד</h3>
@@ -601,7 +600,7 @@
             </div>
           </a>
 
-          <a class="card" href="project.html?id=penthouse-ben-david" data-cat="architecture" data-reveal="up" style="--i:1">
+          <a class="card" href="project.html?id=penthouse-ben-david" data-reveal="up" style="--i:1">
             <div class="card__media"><img src="assets/projects/penthouse-ben-david/01.jpeg" alt="הרחבת פנטהאוז ברחוב בן דוד בבני ברק" loading="lazy" /></div>
             <div class="card__caption">
               <h3>פנטהאוז בן דוד · בני ברק</h3>
@@ -609,59 +608,38 @@
             </div>
           </a>
 
-          <a class="card" href="project.html?id=wing-addition-elad" data-cat="architecture" data-reveal="up" style="--i:2">
+          <a class="card" href="project.html?id=wing-addition-elad" data-reveal="up" style="--i:2">
             <div class="card__media"><img src="assets/projects/wing-addition-elad/01.jpeg" alt="תוספת אגף ושתי קומות לבניין באלעד" loading="lazy" /></div>
             <div class="card__caption">
               <h3>תוספת אגף ו־2 קומות · אלעד</h3>
               <p>אדריכלות וניהול ביצוע · תוספת לבניין קיים</p>
             </div>
           </a>
+        </div>
 
-          <a class="card" href="project.html?id=school-maimon" data-cat="architecture" data-reveal="up" style="--i:3">
-            <div class="card__media"><img src="assets/projects/school-maimon/01.jpeg" alt="בניית בית ספר ברחוב מימון בבני ברק" loading="lazy" /></div>
-            <div class="card__caption">
-              <h3>בית ספר רח׳ מימון · בני ברק</h3>
-              <p>מבני ציבור · ניהול פרויקט ופיקוח</p>
-            </div>
-          </a>
-
-          <a class="card" href="project.html?id=stone-cladding-bnei-brak" data-cat="construction" data-reveal="up" style="--i:4">
-            <div class="card__media"><img src="assets/projects/stone-cladding-bnei-brak/01.jpeg" alt="חיפוי אבן ירושלמית למבנה ברחוב הרב שר בבני ברק" loading="lazy" /></div>
-            <div class="card__caption">
-              <h3>חיפוי אבן ירושלמית · בני ברק</h3>
-              <p>ביצוע · רחוב הרב שר</p>
-            </div>
-          </a>
-
-          <a class="card" href="project.html?id=electrical-plumbing" data-cat="construction" data-reveal="up" style="--i:5">
-            <div class="card__media"><img src="assets/projects/electrical-plumbing/01.jpeg" alt="פיקוח על מערכות חשמל ואינסטלציה" loading="lazy" /></div>
-            <div class="card__caption">
-              <h3>מערכות חשמל ואינסטלציה</h3>
-              <p>ביצוע ומערכות · פרויקטים נבחרים</p>
-            </div>
-          </a>
+        <div class="projects__cta" data-reveal="up">
+          <a href="projects.html" class="btn btn--primary btn--lg">לכל הפרויקטים שלנו</a>
+          <p>למעלה מ־180 פרויקטים שהושלמו בגוש דן והסביבה.</p>
         </div>
       </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats section" aria-label="נתוני המשרד">
-      <div class="container stats__grid">
-        <div class="stat" data-reveal="up">
-          <strong><span data-counter="15">0</span>+</strong>
-          <span>שנות ניסיון</span>
-        </div>
-        <div class="stat" data-reveal="up">
-          <strong><span data-counter="180">0</span>+</strong>
-          <span>פרויקטים הושלמו</span>
-        </div>
-        <div class="stat" data-reveal="up">
-          <strong><span data-counter="45">0</span></strong>
-          <span>ערים ברחבי הארץ</span>
-        </div>
-        <div class="stat" data-reveal="up">
-          <strong><span data-counter="98">0</span>%</strong>
-          <span>לקוחות ממליצים</span>
+    <!-- PHOTO GALLERY (rotating) -->
+    <section class="gallery-strip" aria-label="גלריית תמונות מהפרויקטים">
+      <header class="section-head" data-reveal="up">
+        <span class="eyebrow">מהשטח</span>
+        <h2 class="section-title">רגעים מתוך תיק העבודות</h2>
+        <p class="section-sub">צילומים מפרויקטים שונים שליווה המשרד — מבנים, מערכות, פרטי גמר.</p>
+      </header>
+
+      <div class="gallery-strip__viewport" id="galleryViewport">
+        <div class="gallery-strip__track" id="galleryTrack">
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/01.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/02.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/03.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/04.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/05.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/06.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
         </div>
       </div>
     </section>
@@ -670,9 +648,9 @@
     <section class="testimonials section" id="testimonials" aria-labelledby="test-title">
       <div class="container">
         <header class="section-head" data-reveal="up">
-          <span class="eyebrow">המלצות</span>
+          <span class="eyebrow">המלצות לקוחות</span>
           <h2 id="test-title" class="section-title">
-            <span class="is-serif">מה מספרים</span> עלינו הלקוחות.
+            מה מספרים עלינו הלקוחות
           </h2>
         </header>
 
@@ -730,7 +708,7 @@
         <header class="section-head" data-reveal="up">
           <span class="eyebrow">שאלות נפוצות</span>
           <h2 id="faq-title" class="section-title">
-            <span class="is-serif">שואלים</span> אותנו הרבה.
+            שואלים אותנו הרבה
           </h2>
         </header>
         <div class="faq__list" data-reveal="up">
@@ -762,8 +740,7 @@
     <section class="cta section" aria-label="צרו קשר">
       <div class="container cta__wrap" data-reveal="up">
         <h2 class="cta__title">
-          <span class="is-serif">מוכנים להתחיל</span>
-          את הפרויקט שלכם?
+          מוכנים להתחיל את הפרויקט שלכם?
         </h2>
         <p>פגישת היכרות ללא התחייבות — כדי להבין איך נכון לגשת לחלום שלכם.</p>
         <div class="cta__buttons">
@@ -779,8 +756,7 @@
         <div class="contact__info" data-reveal="right">
           <span class="eyebrow">צור קשר</span>
           <h2 id="contact-title" class="section-title">
-            <span class="is-serif">בואו נדבר</span>
-            על הפרויקט שלכם.
+            בואו נדבר על הפרויקט שלכם
           </h2>
           <p class="lead">מוזמנים להשאיר פרטים, להתקשר או לשלוח הודעת וואטסאפ — נשמח לחזור בהקדם.</p>
 
@@ -957,9 +933,6 @@
   <button class="to-top" id="toTop" aria-label="חזרה למעלה">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
-
-  <!-- Cursor follower -->
-  <div class="cursor" aria-hidden="true"></div>
 
   <script src="assets/js/a11y.js" defer></script>
   <script src="assets/js/main.js" defer></script>

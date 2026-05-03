@@ -134,64 +134,252 @@
     });
   });
 
-  /* ========= Testimonials carousel ========= */
+  /* ========= Testimonials — continuous marquee with drag ========= */
   const track = document.getElementById('testiTrack');
   const prev = document.getElementById('testiPrev');
   const next = document.getElementById('testiNext');
-  if (track && prev && next) {
-    let index = 0;
-    const items = track.children;
-    const perView = () => (window.innerWidth < 900 ? 1 : 2);
-    const maxIndex = () => Math.max(0, items.length - perView());
+  const viewport = track?.parentElement;
+  if (track && viewport) {
+    // Duplicate cards so the loop is seamless
+    Array.from(track.children).forEach((el) => {
+      const c = el.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      track.appendChild(c);
+    });
+
+    const isRtl = getComputedStyle(document.documentElement).direction === 'rtl';
+    // In RTL we want testimonials to drift right-to-left in reading order, which
+    // means the track translates to the +x direction over time. In LTR we go negative.
+    const sign = isRtl ? 1 : -1;
+    const SPEED = 22; // px/sec — slow
+
+    let offset = 0;
+    let halfWidth = 0;
+    const recalc = () => { halfWidth = track.scrollWidth / 2; };
+    recalc();
+    window.addEventListener('resize', recalc);
+
     const apply = () => {
-      const itemWidth = items[0]?.getBoundingClientRect().width || 0;
-      const gap = parseFloat(getComputedStyle(track).gap) || 14;
-      // RTL: positive translateX moves right; to slide to next item (visually moving content to the right in RTL) we use +dir
-      const dir = getComputedStyle(document.documentElement).direction === 'rtl' ? 1 : -1;
-      track.style.transform = `translateX(${index * (itemWidth + gap) * dir}px)`;
+      track.style.transform = `translateX(${sign * offset}px)`;
     };
-    // In RTL, "next" logically means showing the next items from the reader perspective.
-    // We keep the same index + / - meaning.
-    next.addEventListener('click', () => {
-      index = Math.min(maxIndex(), index + 1);
-      apply();
-    });
-    prev.addEventListener('click', () => {
-      index = Math.max(0, index - 1);
-      apply();
-    });
-    window.addEventListener('resize', () => {
-      index = Math.min(index, maxIndex());
-      apply();
-    });
-    // Auto play
-    let auto = setInterval(() => {
-      index = index >= maxIndex() ? 0 : index + 1;
-      apply();
-    }, 6000);
-    track.addEventListener('mouseenter', () => clearInterval(auto));
-    track.addEventListener('mouseleave', () => {
-      auto = setInterval(() => {
-        index = index >= maxIndex() ? 0 : index + 1;
+
+    const wrap = () => {
+      while (offset >= halfWidth) offset -= halfWidth;
+      while (offset < 0) offset += halfWidth;
+    };
+
+    let paused = false;
+    let pauseTimer = 0;
+    const resumeAuto = (delay = 1500) => {
+      clearTimeout(pauseTimer);
+      pauseTimer = setTimeout(() => { paused = false; lastT = performance.now(); }, delay);
+    };
+    const holdAuto = () => {
+      paused = true;
+      clearTimeout(pauseTimer);
+    };
+
+    let lastT = performance.now();
+    const tick = (t) => {
+      const dt = Math.min(0.05, (t - lastT) / 1000);
+      lastT = t;
+      if (!paused && !document.hidden && !prefersReduced) {
+        offset += SPEED * dt;
+        wrap();
         apply();
-      }, 6000);
-    });
-    // swipe
-    let sx = 0;
-    track.addEventListener('touchstart', (e) => (sx = e.touches[0].clientX), { passive: true });
-    track.addEventListener('touchend', (e) => {
-      const dx = e.changedTouches[0].clientX - sx;
-      if (Math.abs(dx) < 40) return;
-      const rtl = getComputedStyle(document.documentElement).direction === 'rtl';
-      // In RTL, swiping right should go to previous
-      if ((rtl && dx > 0) || (!rtl && dx < 0)) {
-        index = Math.min(maxIndex(), index + 1);
-      } else {
-        index = Math.max(0, index - 1);
       }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    // Hover pause
+    viewport.addEventListener('mouseenter', holdAuto);
+    viewport.addEventListener('mouseleave', () => resumeAuto(200));
+
+    // Mouse drag
+    let dragging = false;
+    let startX = 0;
+    let startOffset = 0;
+    viewport.addEventListener('mousedown', (e) => {
+      dragging = true;
+      startX = e.clientX;
+      startOffset = offset;
+      viewport.classList.add('is-dragging');
+      holdAuto();
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      // In RTL, dragging content rightward (positive dx) advances reading (offset grows).
+      // sign*offset = sign*startOffset + dx  =>  offset = startOffset + dx/sign  =>  startOffset + dx*sign
+      offset = startOffset + dx * sign;
+      wrap();
+      apply();
+    });
+    const endDrag = () => {
+      if (!dragging) return;
+      dragging = false;
+      viewport.classList.remove('is-dragging');
+      resumeAuto(2000);
+    };
+    window.addEventListener('mouseup', endDrag);
+    window.addEventListener('mouseleave', endDrag);
+
+    // Touch drag
+    let touching = false;
+    let tStartX = 0;
+    let tStartOffset = 0;
+    viewport.addEventListener('touchstart', (e) => {
+      touching = true;
+      tStartX = e.touches[0].clientX;
+      tStartOffset = offset;
+      holdAuto();
+    }, { passive: true });
+    viewport.addEventListener('touchmove', (e) => {
+      if (!touching) return;
+      const dx = e.touches[0].clientX - tStartX;
+      offset = tStartOffset + dx * sign;
+      wrap();
       apply();
     }, { passive: true });
+    const endTouch = () => {
+      if (!touching) return;
+      touching = false;
+      resumeAuto(2000);
+    };
+    viewport.addEventListener('touchend', endTouch, { passive: true });
+    viewport.addEventListener('touchcancel', endTouch, { passive: true });
+
+    // Prev / next buttons nudge the offset by one card width
+    const stepSize = () => {
+      const card = track.children[0];
+      const gap = parseFloat(getComputedStyle(track).gap) || 16;
+      return (card?.getBoundingClientRect().width || 320) + gap;
+    };
+    next?.addEventListener('click', () => {
+      offset += stepSize();
+      wrap();
+      apply();
+      holdAuto();
+      resumeAuto(3500);
+    });
+    prev?.addEventListener('click', () => {
+      offset -= stepSize();
+      wrap();
+      apply();
+      holdAuto();
+      resumeAuto(3500);
+    });
+
     apply();
+  }
+
+  /* ========= Gallery strip — slow auto-rotating photo marquee ========= */
+  const galleryTrack = document.getElementById('galleryTrack');
+  const galleryViewport = document.getElementById('galleryViewport');
+  if (galleryTrack && galleryViewport) {
+    Array.from(galleryTrack.children).forEach((el) => {
+      const c = el.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      galleryTrack.appendChild(c);
+    });
+
+    const isRtlG = getComputedStyle(document.documentElement).direction === 'rtl';
+    const signG = isRtlG ? 1 : -1;
+    const SPEEDG = 28;
+
+    let offsetG = 0;
+    let halfG = 0;
+    const recalcG = () => { halfG = galleryTrack.scrollWidth / 2; };
+    recalcG();
+    window.addEventListener('resize', recalcG);
+    window.addEventListener('load', recalcG);
+
+    const applyG = () => {
+      galleryTrack.style.transform = `translateX(${signG * offsetG}px)`;
+    };
+    const wrapG = () => {
+      while (offsetG >= halfG) offsetG -= halfG;
+      while (offsetG < 0) offsetG += halfG;
+    };
+
+    let pausedG = false;
+    let pauseTimerG = 0;
+    const resumeG = (delay = 1500) => {
+      clearTimeout(pauseTimerG);
+      pauseTimerG = setTimeout(() => { pausedG = false; lastTG = performance.now(); }, delay);
+    };
+    const holdG = () => { pausedG = true; clearTimeout(pauseTimerG); };
+
+    let lastTG = performance.now();
+    const tickG = (t) => {
+      const dt = Math.min(0.05, (t - lastTG) / 1000);
+      lastTG = t;
+      if (!pausedG && !document.hidden && !prefersReduced) {
+        offsetG += SPEEDG * dt;
+        wrapG();
+        applyG();
+      }
+      requestAnimationFrame(tickG);
+    };
+    requestAnimationFrame(tickG);
+
+    galleryViewport.addEventListener('mouseenter', holdG);
+    galleryViewport.addEventListener('mouseleave', () => resumeG(200));
+
+    let dragG = false;
+    let dxStartG = 0;
+    let dxStartOffsetG = 0;
+    galleryViewport.addEventListener('mousedown', (e) => {
+      dragG = true;
+      dxStartG = e.clientX;
+      dxStartOffsetG = offsetG;
+      galleryViewport.classList.add('is-dragging');
+      holdG();
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!dragG) return;
+      const dx = e.clientX - dxStartG;
+      offsetG = dxStartOffsetG + dx * signG;
+      wrapG();
+      applyG();
+    });
+    const endDragG = () => {
+      if (!dragG) return;
+      dragG = false;
+      galleryViewport.classList.remove('is-dragging');
+      resumeG(2000);
+    };
+    window.addEventListener('mouseup', endDragG);
+    window.addEventListener('mouseleave', endDragG);
+
+    let touchG = false;
+    let tdxStartG = 0;
+    let tdxStartOffsetG = 0;
+    galleryViewport.addEventListener('touchstart', (e) => {
+      touchG = true;
+      tdxStartG = e.touches[0].clientX;
+      tdxStartOffsetG = offsetG;
+      holdG();
+    }, { passive: true });
+    galleryViewport.addEventListener('touchmove', (e) => {
+      if (!touchG) return;
+      const dx = e.touches[0].clientX - tdxStartG;
+      offsetG = tdxStartOffsetG + dx * signG;
+      wrapG();
+      applyG();
+    }, { passive: true });
+    const endTouchG = () => {
+      if (!touchG) return;
+      touchG = false;
+      resumeG(2000);
+    };
+    galleryViewport.addEventListener('touchend', endTouchG, { passive: true });
+    galleryViewport.addEventListener('touchcancel', endTouchG, { passive: true });
+
+    applyG();
   }
 
   /* ========= Form: real submit via Web3Forms ========= */
@@ -258,45 +446,7 @@
     });
   }
 
-  /* ========= Custom cursor (desktop) ========= */
-  if (!isCoarse && !prefersReduced) {
-    const cursor = document.querySelector('.cursor');
-    let cx = 0, cy = 0, tx = 0, ty = 0;
-    document.addEventListener('mousemove', (e) => {
-      cx = e.clientX;
-      cy = e.clientY;
-      cursor.style.opacity = '1';
-    });
-    const tick = () => {
-      tx += (cx - tx) * 0.18;
-      ty += (cy - ty) * 0.18;
-      cursor.style.transform = `translate(${tx - 14}px, ${ty - 14}px)`;
-      requestAnimationFrame(tick);
-    };
-    tick();
-    document.querySelectorAll('a, button, .card, .service, .chip, .faq__item summary')
-      .forEach((el) => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
-      });
-    document.addEventListener('mouseleave', () => (cursor.style.opacity = '0'));
-  }
-
-  /* ========= 3D tilt for service cards ========= */
-  if (!isCoarse && !prefersReduced) {
-    document.querySelectorAll('.service, .card').forEach((el) => {
-      el.addEventListener('mousemove', (e) => {
-        const r = el.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        el.style.transform = `translateY(-4px) rotateX(${y * -6}deg) rotateY(${x * 6}deg)`;
-        el.style.transformStyle = 'preserve-3d';
-      });
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = '';
-      });
-    });
-  }
+  /* Custom cursor and 3D card tilt removed for the bright/professional theme */
 
   /* ========= Parallax for hero grid and about images (desktop only) ========= */
   if (!prefersReduced && !isSmall) {
