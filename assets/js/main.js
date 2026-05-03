@@ -618,6 +618,36 @@
     heroObs.observe(canvas);
   }
 
+  /* ========= Hero slideshow ========= */
+  {
+    const wrap = document.getElementById('heroSlides');
+    if (wrap) {
+      const slides = Array.from(wrap.querySelectorAll('.hero__slide'));
+      if (slides.length > 1) {
+        let i = 0;
+        const interval = prefersReduced ? 7000 : 5000;
+        let timer = setInterval(next, interval);
+
+        function next() {
+          slides[i].classList.remove('is-active');
+          i = (i + 1) % slides.length;
+          slides[i].classList.add('is-active');
+        }
+
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              if (!timer) timer = setInterval(next, interval);
+            } else {
+              clearInterval(timer); timer = null;
+            }
+          });
+        }, { threshold: 0 });
+        obs.observe(wrap);
+      }
+    }
+  }
+
   /* ========= Keyboard accessibility: close mobile nav with ESC ========= */
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && toggle?.classList.contains('is-open')) {
