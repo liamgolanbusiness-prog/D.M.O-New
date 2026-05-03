@@ -1126,6 +1126,40 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.25; font-weight: 700; color: var(--te
 .contact__social a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 .contact__social a svg { width: 18px; height: 18px; }
 
+/* Brand-colored contact icons (centered) */
+.contact__social--brand {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.contact__social--brand .contact__social-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 0;
+  background: #888;
+  box-shadow: 0 8px 20px -10px rgba(0,0,0,.35);
+  transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out), filter .2s ease;
+}
+.contact__social--brand .contact__social-btn svg {
+  width: 26px;
+  height: 26px;
+}
+.contact__social--brand .contact__social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -12px rgba(0,0,0,.45);
+  filter: brightness(1.05);
+}
+.contact__social-btn--whatsapp { background: #25D366; }
+.contact__social-btn--phone    { background: #1A73E8; }
+.contact__social-btn--mail     { background: #EA4335; }
+
 /* Contact form */
 .contact__form {
   background: #fff;
