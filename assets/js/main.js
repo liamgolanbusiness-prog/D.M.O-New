@@ -618,6 +618,43 @@
     heroObs.observe(canvas);
   }
 
+  /* ========= Reveal stagger: assign incremental delays for grouped reveals ========= */
+  document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+    const children = group.querySelectorAll('[data-reveal]');
+    children.forEach((el, idx) => {
+      el.style.setProperty('--reveal-delay', `${Math.min(idx * 60, 360)}ms`);
+    });
+  });
+  // Auto-stagger common grids (services, projects, gallery) without needing markup changes
+  document.querySelectorAll('.services__grid, .projects-list__grid, .gallery__grid, .process__grid').forEach((grid) => {
+    Array.from(grid.children).forEach((child, idx) => {
+      if (!child.hasAttribute('data-reveal')) child.setAttribute('data-reveal', 'up');
+      child.style.setProperty('--reveal-delay', `${Math.min(idx * 70, 420)}ms`);
+    });
+  });
+
+  /* ========= Page transition: fade out before navigating to internal pages ========= */
+  if (!prefersReduced) {
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+      if (a.target === '_blank' || a.hasAttribute('download')) return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin) return;
+      // Skip same-page hash links
+      if (url.pathname === location.pathname && url.hash) return;
+      e.preventDefault();
+      document.body.classList.add('is-leaving');
+      setTimeout(() => { window.location.href = a.href; }, 220);
+    });
+    // Restore on bfcache return
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) document.body.classList.remove('is-leaving');
+    });
+  }
+
   /* ========= Hero slideshow ========= */
   {
     const wrap = document.getElementById('heroSlides');

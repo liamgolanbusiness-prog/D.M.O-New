@@ -385,8 +385,7 @@
 
         <div class="hero__media" aria-hidden="true">
           <div class="hero__slides" id="heroSlides">
-            <img src="Media/WhatsApp Image 2026-04-20 at 16.28.38.jpeg" alt="" class="hero__slide is-active" loading="eager" />
-            <img src="Media/WhatsApp Image 2026-04-20 at 16.28.39.jpeg" alt="" class="hero__slide" loading="lazy" />
+            <img src="Media/WhatsApp Image 2026-04-20 at 16.28.39.jpeg" alt="" class="hero__slide is-active" loading="eager" />
             <img src="Media/WhatsApp Image 2026-04-20 at 16.42.23.jpeg" alt="" class="hero__slide" loading="lazy" />
             <img src="Media/WhatsApp Image 2026-04-20 at 16.42.27.jpeg" alt="" class="hero__slide" loading="lazy" />
             <img src="Media/WhatsApp Image 2026-04-20 at 16.42.27 (1).jpeg" alt="" class="hero__slide" loading="lazy" />
@@ -508,7 +507,65 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- TESTIMONIALS -->
+    <section class="testimonials section" id="testimonials" aria-labelledby="test-title">
+      <div class="container">
+        <header class="section-head" data-reveal="up">
+          <span class="eyebrow">המלצות לקוחות</span>
+          <h2 id="test-title" class="section-title">
+            מה מספרים עלינו הלקוחות
+          </h2>
+        </header>
+
+        <div class="testimonials__viewport">
+          <div class="testimonials__track" id="testiTrack">
+            <article class="testi">
+              <div class="testi__quote" aria-hidden="true">“</div>
+              <p>״הם הקשיבו, חלמו איתנו, וגם דאגו שכל שקל יחזור בערך אליו. הבית יצא מדויק לטעם שלנו — והפרויקט התנהל ללא כאבי ראש.״</p>
+              <footer>
+                <strong>שרון ודני ל׳</strong>
+                <span>וילה · גבעת שמואל</span>
+              </footer>
+            </article>
+            <article class="testi">
+              <div class="testi__quote" aria-hidden="true">“</div>
+              <p>״המשרד הצליח לתרגם את החזון שלנו לתכנון חכם ואסתטי. הליווי שלהם מול הרשויות חסך לנו חודשים של בירוקרטיה.״</p>
+              <footer>
+                <strong>משפ׳ כהן</strong>
+                <span>בניין מגורים · בני ברק</span>
+              </footer>
+            </article>
+            <article class="testi">
+              <div class="testi__quote" aria-hidden="true">“</div>
+              <p>״רמת הפירוט, הסבלנות והמקצועיות — יוצאת דופן. זה לא רק משרד שמתכנן, זה צוות שנושם איתכם את הפרויקט.״</p>
+              <footer>
+                <strong>רעות מ׳</strong>
+                <span>שיפוץ דירת יוקרה · פתח תקווה</span>
+              </footer>
+            </article>
+            <article class="testi">
+              <div class="testi__quote" aria-hidden="true">“</div>
+              <p>״היינו עם עוד כמה משרדים לפני. פה לראשונה הרגשנו שאנחנו במרכז, לא הפרויקט. קיבלנו בית חכם, חם ומדויק.״</p>
+              <footer>
+                <strong>משפ׳ לוי</strong>
+                <span>בית פרטי · אלעד</span>
+              </footer>
+            </article>
+          </div>
+        </div>
+
+        <div class="testimonials__nav">
+          <button class="round-btn" id="testiPrev" aria-label="המלצה קודמת">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="round-btn" id="testiNext" aria-label="המלצה הבאה">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT (Since 2010 + about us) -->
     <section class="about section" id="about" aria-labelledby="about-title">
       <div class="container about__grid">
         <div class="about__media" data-reveal="right">
@@ -550,6 +607,26 @@
             <a href="#contact" class="btn btn--primary">קביעת פגישה</a>
             <a href="projects.html" class="btn btn--link">צפו בפרויקטים ←</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY (rotating) -->
+    <section class="gallery-strip" aria-label="גלריית תמונות מהפרויקטים">
+      <header class="section-head" data-reveal="up">
+        <span class="eyebrow">מהשטח</span>
+        <h2 class="section-title">רגעים מתוך תיק העבודות</h2>
+        <p class="section-sub">צילומים מפרויקטים שונים שליווה המשרד — מבנים, מערכות, פרטי גמר.</p>
+      </header>
+
+      <div class="gallery-strip__viewport" id="galleryViewport">
+        <div class="gallery-strip__track" id="galleryTrack">
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/01.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/02.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/03.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/04.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/05.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
+          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/06.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
         </div>
       </div>
     </section>
@@ -636,84 +713,6 @@
         <div class="projects__cta" data-reveal="up">
           <a href="projects.html" class="btn btn--primary btn--lg">לכל הפרויקטים שלנו</a>
           <p>למעלה מ־180 פרויקטים שהושלמו בגוש דן והסביבה.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PHOTO GALLERY (rotating) -->
-    <section class="gallery-strip" aria-label="גלריית תמונות מהפרויקטים">
-      <header class="section-head" data-reveal="up">
-        <span class="eyebrow">מהשטח</span>
-        <h2 class="section-title">רגעים מתוך תיק העבודות</h2>
-        <p class="section-sub">צילומים מפרויקטים שונים שליווה המשרד — מבנים, מערכות, פרטי גמר.</p>
-      </header>
-
-      <div class="gallery-strip__viewport" id="galleryViewport">
-        <div class="gallery-strip__track" id="galleryTrack">
-          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/01.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
-          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/02.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
-          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/03.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
-          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/04.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
-          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/05.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
-          <figure class="gallery-strip__item"><img src="assets/projects/various-buildings/06.jpeg" alt="פרויקט מתיק העבודות של DMO" loading="lazy" /></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials section" id="testimonials" aria-labelledby="test-title">
-      <div class="container">
-        <header class="section-head" data-reveal="up">
-          <span class="eyebrow">המלצות לקוחות</span>
-          <h2 id="test-title" class="section-title">
-            מה מספרים עלינו הלקוחות
-          </h2>
-        </header>
-
-        <div class="testimonials__viewport">
-          <div class="testimonials__track" id="testiTrack">
-            <article class="testi">
-              <div class="testi__quote" aria-hidden="true">“</div>
-              <p>״הם הקשיבו, חלמו איתנו, וגם דאגו שכל שקל יחזור בערך אליו. הבית יצא מדויק לטעם שלנו — והפרויקט התנהל ללא כאבי ראש.״</p>
-              <footer>
-                <strong>שרון ודני ל׳</strong>
-                <span>וילה · גבעת שמואל</span>
-              </footer>
-            </article>
-            <article class="testi">
-              <div class="testi__quote" aria-hidden="true">“</div>
-              <p>״המשרד הצליח לתרגם את החזון שלנו לתכנון חכם ואסתטי. הליווי שלהם מול הרשויות חסך לנו חודשים של בירוקרטיה.״</p>
-              <footer>
-                <strong>משפ׳ כהן</strong>
-                <span>בניין מגורים · בני ברק</span>
-              </footer>
-            </article>
-            <article class="testi">
-              <div class="testi__quote" aria-hidden="true">“</div>
-              <p>״רמת הפירוט, הסבלנות והמקצועיות — יוצאת דופן. זה לא רק משרד שמתכנן, זה צוות שנושם איתכם את הפרויקט.״</p>
-              <footer>
-                <strong>רעות מ׳</strong>
-                <span>שיפוץ דירת יוקרה · פתח תקווה</span>
-              </footer>
-            </article>
-            <article class="testi">
-              <div class="testi__quote" aria-hidden="true">“</div>
-              <p>״היינו עם עוד כמה משרדים לפני. פה לראשונה הרגשנו שאנחנו במרכז, לא הפרויקט. קיבלנו בית חכם, חם ומדויק.״</p>
-              <footer>
-                <strong>משפ׳ לוי</strong>
-                <span>בית פרטי · אלעד</span>
-              </footer>
-            </article>
-          </div>
-        </div>
-
-        <div class="testimonials__nav">
-          <button class="round-btn" id="testiPrev" aria-label="המלצה קודמת">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="round-btn" id="testiNext" aria-label="המלצה הבאה">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
         </div>
       </div>
     </section>

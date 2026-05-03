@@ -131,6 +131,15 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.25; font-weight: 700; color: var(--te
 .section-head--split {
   display: flex; flex-direction: column; gap: 14px;
   text-align: start; max-width: none; margin-bottom: 32px;
+  align-items: flex-start;
+}
+.section-head--split > * { margin-inline: 0; }
+@media (min-width: 800px) {
+  .section-head--split {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 }
 .section-title {
   font-size: var(--fs-h2);
@@ -642,12 +651,16 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.25; font-weight: 700; color: var(--te
   width: 100%;
 }
 .about__image {
+  position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
 .about__image img {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%; height: 100%; object-fit: cover;
   transition: transform .8s var(--ease);
 }
@@ -1305,11 +1318,14 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.25; font-weight: 700; color: var(--te
 
 /* ========= SUB-HERO (inner pages) ========= */
 .subhero {
-  padding: calc(var(--nav-h) + 32px) 0 36px;
+  padding: calc(var(--nav-h) + 16px) 0 20px;
   background: var(--bg-2);
   border-bottom: 1px solid var(--line);
 }
-.subhero__inner { display: grid; gap: 14px; }
+.subhero__inner { display: grid; gap: 10px; }
+.projects-list.section { padding-block: 32px; }
+@media (min-width: 900px) { .projects-list.section { padding-block: 48px; } }
+.projects-list .section-head { margin-bottom: 24px; }
 .subhero h1 {
   font-size: var(--fs-h1);
   font-weight: 800;
@@ -1394,6 +1410,15 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.25; font-weight: 700; color: var(--te
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  width: auto;
+}
+.project-card__cta svg {
+  width: 16px;
+  height: 16px;
 }
 
 .project-empty {
@@ -2019,6 +2044,119 @@ main > article.subhero ~ section .container > ul li strong,
 main > article.subhero ~ section .container > ol li strong {
   color: var(--text);
   font-weight: 700;
+}
+
+/* ========= Motion polish ========= */
+
+/* Page fade in/out */
+body {
+  opacity: 0;
+  animation: page-in .5s var(--ease-out) forwards;
+}
+body.is-leaving {
+  animation: page-out .25s ease forwards;
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes page-out {
+  to { opacity: 0; transform: translateY(-4px); }
+}
+
+/* Animated underline on desktop nav links */
+.nav__list a {
+  position: relative;
+}
+.nav__list a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 14px;
+  bottom: 4px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: inline-end;
+  transition: transform .35s var(--ease-out);
+}
+.nav__list a:hover::after,
+.nav__list a.is-active::after,
+.nav__list a[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: inline-start;
+}
+
+/* Mobile nav stagger entrance */
+.mobile-nav ul li {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .35s var(--ease-out), transform .35s var(--ease-out);
+  transition-delay: 0s;
+}
+.mobile-nav[data-open="true"] ul li {
+  opacity: 1;
+  transform: none;
+}
+.mobile-nav[data-open="true"] ul li:nth-child(1) { transition-delay: .06s; }
+.mobile-nav[data-open="true"] ul li:nth-child(2) { transition-delay: .10s; }
+.mobile-nav[data-open="true"] ul li:nth-child(3) { transition-delay: .14s; }
+.mobile-nav[data-open="true"] ul li:nth-child(4) { transition-delay: .18s; }
+.mobile-nav[data-open="true"] ul li:nth-child(5) { transition-delay: .22s; }
+.mobile-nav[data-open="true"] ul li:nth-child(6) { transition-delay: .26s; }
+.mobile-nav .btn--primary {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .4s var(--ease-out) .32s, transform .4s var(--ease-out) .32s;
+}
+.mobile-nav[data-open="true"] .btn--primary {
+  opacity: 1;
+  transform: none;
+}
+
+/* Reveal stagger via CSS variable set in JS */
+[data-reveal] {
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+/* Project card hover lift */
+.project-card {
+  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px -22px rgba(0,0,0,.30);
+}
+
+/* Button press feedback */
+.btn:active { transform: translateY(1px) scale(.98); }
+
+/* Subtle CTA arrow drift */
+.project-card__cta svg {
+  transition: transform .3s var(--ease-out);
+}
+.project-card:hover .project-card__cta svg {
+  transform: translateX(-4px);
+}
+
+/* Logo gentle hover */
+.logo {
+  transition: transform .35s var(--ease-out);
+}
+.logo:hover { transform: translateY(-1px); }
+
+/* Header elevates on scroll */
+.header {
+  transition: box-shadow .3s ease, background .3s ease, backdrop-filter .3s ease;
+}
+.header.is-scrolled {
+  box-shadow: 0 6px 24px -16px rgba(0,0,0,.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body, body.is-leaving { animation: none; opacity: 1; }
+  .mobile-nav ul li, .mobile-nav .btn--primary { opacity: 1; transform: none; transition: none; }
+  .project-card:hover { transform: none; }
 }
 
 /* ========= Print ========= */
