@@ -61,8 +61,8 @@
     if (!toggle || !mobileNav) return;
     toggle.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    mobileNav.hidden = !open;
     mobileNav.dataset.open = String(open);
+    mobileNav.setAttribute('aria-hidden', String(!open));
     document.body.style.overflow = open ? 'hidden' : '';
   };
   toggle?.addEventListener('click', () => setMobile(!toggle.classList.contains('is-open')));
@@ -71,6 +71,32 @@
   /* ========= Back to top ========= */
   document.getElementById('toTop')?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+  });
+
+  /* ========= Word-by-word wrapping for [data-words] (RTL-friendly) ========= */
+  document.querySelectorAll('[data-words]').forEach((root) => {
+    let idx = 0;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    textNodes.forEach((node) => {
+      const text = node.nodeValue;
+      if (!text || !text.trim()) return;
+      const frag = document.createDocumentFragment();
+      text.split(/(\s+)/).forEach((part) => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) {
+          frag.appendChild(document.createTextNode(part));
+        } else {
+          const span = document.createElement('span');
+          span.className = 'word';
+          span.style.setProperty('--i', String(idx++));
+          span.textContent = part;
+          frag.appendChild(span);
+        }
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
   });
 
   /* ========= Reveal on scroll ========= */
@@ -662,7 +688,7 @@
       const slides = Array.from(wrap.querySelectorAll('.hero__slide'));
       if (slides.length > 1) {
         let i = 0;
-        const interval = prefersReduced ? 7000 : 5000;
+        const interval = prefersReduced ? 4500 : 3200;
         let timer = setInterval(next, interval);
 
         function next() {

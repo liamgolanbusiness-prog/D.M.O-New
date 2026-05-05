@@ -63,7 +63,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap" rel="stylesheet" />
 
   <link rel="preload" as="image" href="assets/img/staircase.jpg" />
-  <link rel="stylesheet" href="assets/css/style.css?v=9" />
+  <link rel="stylesheet" href="assets/css/style.css?v=11" />
 
   <script type="application/ld+json">
   {
@@ -311,11 +311,6 @@
   <header class="header is-scrolled" id="header">
     <div class="container header__row">
       <a href="#top" class="logo" aria-label="די אם או אדריכלים - בית">
-        <span class="logo__mark">
-          <svg viewBox="0 0 40 40" aria-hidden="true">
-            <path d="M4 36 V10 L20 4 L36 10 V36 H24 V22 H16 V36 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-        </span>
         <span class="logo__text">
           <strong>DMO</strong>
           <em>אדריכלים</em>
@@ -340,7 +335,7 @@
       </button>
     </div>
 
-    <div class="mobile-nav" id="mobile-nav" hidden>
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
       <ul>
         <li><a href="#about">אודות</a></li>
         <li><a href="#services">שירותים</a></li>
@@ -358,7 +353,8 @@
     <!-- HERO -->
     <section class="hero" id="top" aria-label="ברוכים הבאים">
       <video class="hero__video" autoplay muted loop playsinline preload="auto"
-             poster="Media/WhatsApp Image 2026-04-20 at 16.28.39.jpeg" aria-hidden="true">
+             poster="Media/WhatsApp Image 2026-04-20 at 16.28.39.jpeg" aria-hidden="true"
+             onloadedmetadata="this.playbackRate=0.5" onplay="this.playbackRate=0.5">
         <source src="ConstractionVideo.mp4" type="video/mp4" />
       </video>
       <div class="hero__overlay" aria-hidden="true"></div>
@@ -511,6 +507,45 @@
       </div>
     </section>
 
+    <!-- ABOUT (Since 2010 + about us) -->
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div class="about__media" data-reveal="right">
+          <div class="about__image about__image--main">
+            <img src="assets/img/staircase.jpg" alt="תכנון מדרגות דרמטיות עם גופי תאורה זהובים תלויים — פרויקט של DMO" loading="lazy" />
+          </div>
+          <div class="about__image about__image--sub">
+            <img src="assets/img/lobby-rings.jpg" alt="לובי גבוה עם תאורת טבעות זהובה — עיצוב של משרד DMO" loading="lazy" />
+          </div>
+          <div class="about__badge" aria-hidden="true">
+            <span>Since</span>
+            <strong>2010</strong>
+          </div>
+        </div>
+
+        <div class="about__content" data-reveal="left">
+          <span class="eyebrow">אודות המשרד</span>
+          <h2 id="about-title" class="section-title" data-words>
+            די.אם.או אדריכלים — <span class="hl-color">הסיפור שלנו</span>.
+          </h2>
+          <p class="lead" data-words>
+            משרדנו הוקם בשנת <span class="hl-color">2010</span>, לאחר <strong>שמונה שנים</strong> של ניהול תחום הבנייה במוסדות ציבוריים.
+            מאז <u>2002 ועד היום</u>, בעל המשרד עוסק ב<strong class="hl-color">ניהול ופיקוח בנייה</strong> — בליווי קורסים, לימודים
+            ותעודות מ<strong>הטכניון</strong> וממכללות מובילות, כולל הנדסאי אדריכלות ועיצוב פנים, מנהל עבודה
+            בבניין, ניהול פרויקטים ופיקוח בנייה.
+          </p>
+          <p class="lead" data-words>
+            ב־<strong>15 השנים האחרונות</strong> אנחנו מתמקדים בעיקר בליווי, פיקוח וניהול של פרויקטים בבנייה —
+            כי אנחנו מאמינים שלכל לקוח מגיע לקבל את <span class="hl-color">התוצאה הטובה ביותר</span>, באיכות ביצוע <strong><u>ללא פשרות</u></strong>.
+          </p>
+          <div class="about__actions">
+            <a href="#contact" class="btn btn--primary">קביעת פגישה</a>
+            <a href="projects.html" class="btn btn--link">צפו בפרויקטים ←</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- TESTIMONIALS -->
     <section class="testimonials section" id="testimonials" aria-labelledby="test-title">
       <div class="container">
@@ -565,52 +600,6 @@
           <button class="round-btn" id="testiNext" aria-label="המלצה הבאה">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT (Since 2010 + about us) -->
-    <section class="about section" id="about" aria-labelledby="about-title">
-      <div class="container about__grid">
-        <div class="about__media" data-reveal="right">
-          <div class="about__image about__image--main">
-            <img src="assets/img/staircase.jpg" alt="תכנון מדרגות דרמטיות עם גופי תאורה זהובים תלויים — פרויקט של DMO" loading="lazy" />
-          </div>
-          <div class="about__image about__image--sub">
-            <img src="assets/img/lobby-rings.jpg" alt="לובי גבוה עם תאורת טבעות זהובה — עיצוב של משרד DMO" loading="lazy" />
-          </div>
-          <div class="about__badge" aria-hidden="true">
-            <span>Since</span>
-            <strong>2010</strong>
-          </div>
-        </div>
-
-        <div class="about__content" data-reveal="left">
-          <span class="eyebrow">אודות המשרד</span>
-          <h2 id="about-title" class="section-title">
-            הפרויקט שלכם — כפרויקט אישי שלנו
-          </h2>
-          <p class="lead">
-            משרדנו הוקם בשנת 2010, לאחר שמונה שנים של ניהול תחום הבנייה במוסדות ציבוריים.
-            מאז 2002 ועד היום, בעל המשרד עוסק בניהול ופיקוח בנייה — בליווי קורסים, לימודים
-            ותעודות מהטכניון וממכללות מובילות, כולל הנדסאי אדריכלות ועיצוב פנים, מנהל עבודה
-            בבניין, ניהול פרויקטים ופיקוח בנייה.
-          </p>
-          <p class="lead">
-            ב־15 השנים האחרונות אנחנו מתמקדים בעיקר בליווי, פיקוח וניהול של פרויקטים בבנייה —
-            כי אנחנו מאמינים שלכל לקוח מגיע לקבל את התוצאה הטובה ביותר, באיכות ביצוע ללא פשרות.
-          </p>
-          <ul class="about__list">
-            <li><span>01</span> ניהול פרויקטים מהרעיון ועד למסירת המפתח</li>
-            <li><span>02</span> פיקוח בנייה צמוד לאיכות וטיב העבודה</li>
-            <li><span>03</span> הכנת חוזים ומפרטים אינדיבידואליים</li>
-            <li><span>04</span> הוצאת מכרזים לקבלנים ועזרה בבחירתם</li>
-            <li><span>05</span> תכנון ועיצוב תוספות בנייה ושיפוצים</li>
-          </ul>
-          <div class="about__actions">
-            <a href="#contact" class="btn btn--primary">קביעת פגישה</a>
-            <a href="projects.html" class="btn btn--link">צפו בפרויקטים ←</a>
-          </div>
         </div>
       </div>
     </section>
@@ -953,7 +942,7 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
 
-  <script src="assets/js/a11y.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/a11y.js?v=11" defer></script>
+  <script src="assets/js/main.js?v=11" defer></script>
 </body>
 </html>
